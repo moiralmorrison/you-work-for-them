@@ -3,3 +3,16 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+
+#constituency .search-type {
+  margin: 0 10px 5px 20px;
+  padding: 3px 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.8em;
+}
+
+.tt-menu {
+	background-color: white;
+	padding: 1em;
+	border: thin solid black;
+}
