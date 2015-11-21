@@ -339,7 +339,6 @@ Lilian Greenwood,	E14000867
 Marcus Jones,	E14000868
 James Brokenshire,	E14000869
 Debbie Abrahams,	E14000870
-Michael Meacher,	E14000871
 Jo Johnson,	E14000872
 Andrew Smith,	E14000873
 Nicola Blackwood,	E14000874
