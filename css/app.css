@@ -31,3 +31,12 @@ p.value {
 p.caption {
 	text-align: center;
 }
+
+div.average {
+	color: #999999;
+}
+
+div.row {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

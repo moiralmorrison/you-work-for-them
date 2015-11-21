@@ -57,22 +57,47 @@
 
     <div class="container">
       <h2 id="constituencyName"></h2>
-      <!-- Example row of columns -->
-      <div class="row">
-        <div>
-            <p id="population">Your consituency has around <span class="value"></span> residents.</p>
+      <p><small>Figures are based on the 2011 census.</small></p>
+      <div id="population" class="row">
+        <div class="col-sm-6 local">
+          <p class="caption">Your constituency has around</p>
+          <p class="value"></p>
+          <p class="caption">residents</p>
+        </div>
+        <div class="col-sm-6 average">
+          <p class="caption">The average constituency has around</p>
+          <p class="value">???</p>
+          <p class="caption">residents</p>
         </div>
       </div>
-      <div id="emptyVsHomeless" class="row">
-        <div id="emptyHomes" class="col-sm-6">
-          <p class="value">
-          </p>
-          <p class="caption">homes are empty</p>
+
+      <hr>
+
+      <div id="emptyHomes" class="row">
+        <div class="col-sm-6 local">
+          <p class="caption">In your constituency</p>
+          <p class="value"></p>
+          <p class="caption">homes are sitting empty</p>
         </div>
-        <div id="shelters" class="col-sm-6">
-          <p class="value">
-          </p>
-          <p class="caption">shelters are available</p>
+        <div class="col-sm-6 average">
+          <p class="caption">In the average constituency</p>
+          <p class="value">???</p>
+          <p class="caption">homes are sitting empty</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div id="shelters" class="row">
+        <div class="col-sm-6 local">
+          <p class="caption">In your constituency there are</p>
+          <p class="value"></p>
+          <p class="caption">homeless shelters</p>
+        </div>
+        <div class="col-sm-6 average">
+          <p class="caption">In the average constituency there are</p>
+          <p class="value">???</p>
+          <p class="caption">homeless shelters</p>
         </div>
       </div>
 
@@ -90,6 +115,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
