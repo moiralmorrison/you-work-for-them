@@ -66,6 +66,7 @@ $.get("constituencies.tsv", function (constituencyData) {
     var loadData = function(code) {
       showConstituency(code);
       showPopulation(code);
+      showEmptyVsHomeless(code);
     };
 
     var showConstituency = function(code) {
@@ -82,17 +83,37 @@ $.get("constituencies.tsv", function (constituencyData) {
       });
     };
 
+    var showEmptyVsHomeless = function(code) {
+      $('#emptyVsHomeless').hide();
+      loadONSstats("KS401EW", 2, code, function (data) {
+        var emptyHomes = data["Household spaces with no usual residents"];
+        $("#emptyHomes .value").text(emptyHomes);
+        loadONSstats("QS101EW", 2, code, function (data) {
+          var shelters = data["Communal establishments with persons sleeping rough identified"];
+          $('#shelters .value').text(shelters);
+          $('#emptyVsHomeless').show();
+        });
+      });
+    };
+
     var loadONSstats = function(dataset, segmentNo, area, callback) {
       $.get("http://www.ons.gov.uk/ons/api/data/dataset/" + dataset + ".json?context=Census&jsontype=json-stat&apikey=sqZtbN6sgJ&geog=2011PCONH&totals=false&dm/2011PCONH=" + area, function (data) {
         var segmentId = dataset + " Segment_" + segmentNo;
         var segment = data[segmentId];
         var values = segment["value"];
+        var unvaryingDimensions = [];
+        for (dType in segment["dimension"]["role"]) {
+          unvaryingDimensions.push(segment["dimension"]["role"][dType][0]);
+        }
         var dimension = "";
-        for (i in segment["dimension"]["size"]) {
-          if (segment["dimension"]["size"][i] > 1) {
-            dimension = segment["dimension"][segment["dimension"]["id"][i]];
+        for (i in segment["dimension"]["id"]) {
+          dimensionId = segment["dimension"]["id"][i];
+          if ($.inArray(dimensionId, unvaryingDimensions) == -1) {
+            dimension = segment["dimension"][dimensionId];
           }
         }
+        console.log(unvaryingDimensions);
+        console.log(dimension);
         var response = {};
         var labels = dimension["category"]["label"];
         var indexes = dimension["category"]["index"];

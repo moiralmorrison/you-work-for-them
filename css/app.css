@@ -16,3 +16,18 @@ body {
 	padding: 1em;
 	border: thin solid black;
 }
+
+span.value {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+p.value {
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+p.caption {
+	text-align: center;
+}
