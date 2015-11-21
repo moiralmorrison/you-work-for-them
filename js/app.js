@@ -38,7 +38,6 @@ $.get("constituencies.tsv", function (constituencyData) {
     },
     {
       name: 'mps',
-      display: 'constituency',
       source: mpLookup,
       templates: {
         header: '<h3 class="search-type">MPs</h3>'
