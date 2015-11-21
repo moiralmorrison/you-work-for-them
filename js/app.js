@@ -40,6 +40,12 @@ $.get("constituencies.tsv", function (constituencyData) {
   // }
   );
 
+  $("#search").submit(function (event) {
+    $('#constituency').typeahead('close');
+    var search = $('#constituency').typeahead('val');
+    var code = constituencies[search];
+    window.location.hash = '#' + code;
+    return false;
+  });
+
 });
-
-
