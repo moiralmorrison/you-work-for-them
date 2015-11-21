@@ -1,3 +1,6 @@
+$('#population').hide();
+$('#emptyVsHomeless').hide();
+
 $.get("constituencies.tsv", function (constituencyData) {
   $.get("MPs.tsv", function (mpData) {
     var lines = constituencyData.split("\n")
